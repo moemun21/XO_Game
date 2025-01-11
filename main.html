@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XO</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top">
+      <h1>X/O Game</h1>
+      <div class="score">
+        <div class="eachsco">
+          <h3>X</h3>
+          <p id="xscore">0</p>
+        </div>
+        <div class="eachsco">
+          <h3>O</h3>
+          <p id="oscore">0</p>
+        </div>
+      </div>
+      <button class="btn" id="mibtn">New Game</button>
+      <button class="btn" id="mibtn2">Reset scores</button>
+    </div>
+    <div class="bigbox">
+      <div class="row">
+        <div class="block"><button class="blockbtn" id="b1">1</button></div>
+        <div class="block"><button class="blockbtn" id="b4">4</button></div>
+        <div class="block"><button class="blockbtn" id="b7">7</button></div>
+      </div>
+      <div class="row">
+        <div class="block"><button class="blockbtn" id="b2">2</button></div>
+        <div class="block"><button class="blockbtn" id="b5">5</button></div>
+        <div class="block"><button class="blockbtn" id="b8">8</button></div>
+      </div>
+      <div class="row">
+        <div class="block"><button class="blockbtn" id="b3">3</button></div>
+        <div class="block"><button class="blockbtn" id="b6">6</button></div>
+        <div class="block"><button class="blockbtn" id="b9">9</button></div>
+      </div>
+    </div>
+    <script>
+      //arrangment and new game setups
+      let arr = [];
+      function newgame() {
+        document.getElementById("b1").innerHTML = "1";
+        document.getElementById("b2").innerHTML = "2";
+        document.getElementById("b3").innerHTML = "3";
+        document.getElementById("b4").innerHTML = "4";
+        document.getElementById("b5").innerHTML = "5";
+        document.getElementById("b6").innerHTML = "6";
+        document.getElementById("b7").innerHTML = "7";
+        document.getElementById("b8").innerHTML = "8";
+        document.getElementById("b9").innerHTML = "9";
+        i = 0;
+        //can be pressed again for new game
+        //document.querySelector("button").disabled = false;
+
+        //arr = [];
+      }
+      function resetscore() {
+        osco = 0;
+        document.getElementById("oscore").innerHTML = osco;
+        xsco = 0;
+        document.getElementById("xscore").innerHTML = xsco;
+      }
+      let butn = document.getElementById("mibtn");
+      butn.addEventListener("click", newgame);
+      let butn2 = document.getElementById("mibtn2");
+      butn2.addEventListener("click", resetscore);
+
+      //Gameplay
+      let btn1 = document.getElementById("b1");
+      let btn2 = document.getElementById("b2");
+      let btn3 = document.getElementById("b3");
+      let btn4 = document.getElementById("b4");
+      let btn5 = document.getElementById("b5");
+      let btn6 = document.getElementById("b6");
+      let btn7 = document.getElementById("b7");
+      let btn8 = document.getElementById("b8");
+      let btn9 = document.getElementById("b9");
+
+      //buttons functions for x and o
+      let i = 0;
+      function btpress1() {
+        if (btn1.innerHTML != "X" && btn1.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn1.innerHTML = "X";
+          } else {
+            btn1.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress2() {
+        if (btn2.innerHTML != "X" && btn2.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn2.innerHTML = "X";
+          } else {
+            btn2.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress3() {
+        if (btn3.innerHTML != "X" && btn3.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn3.innerHTML = "X";
+          } else {
+            btn3.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress4() {
+        if (btn4.innerHTML != "X" && btn4.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn4.innerHTML = "X";
+          } else {
+            btn4.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress5() {
+        if (btn5.innerHTML != "X" && btn5.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn5.innerHTML = "X";
+          } else {
+            btn5.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress6() {
+        if (btn6.innerHTML != "X" && btn6.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn6.innerHTML = "X";
+          } else {
+            btn6.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress7() {
+        if (btn7.innerHTML != "X" && btn7.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn7.innerHTML = "X";
+          } else {
+            btn7.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress8() {
+        if (btn8.innerHTML != "X" && btn8.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn8.innerHTML = "X";
+          } else {
+            btn8.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+      function btpress9() {
+        if (btn9.innerHTML != "X" && btn9.innerHTML != "O") {
+          if (i % 2 == 0) {
+            btn9.innerHTML = "X";
+          } else {
+            btn9.innerHTML = "O";
+          }
+          i++;
+          checkvictory();
+        }
+      }
+
+      //button event listeners
+      btn1.addEventListener("click", btpress1);
+      btn2.addEventListener("click", btpress2);
+      btn3.addEventListener("click", btpress3);
+      btn4.addEventListener("click", btpress4);
+      btn5.addEventListener("click", btpress5);
+      btn6.addEventListener("click", btpress6);
+      btn7.addEventListener("click", btpress7);
+      btn8.addEventListener("click", btpress8);
+      btn9.addEventListener("click", btpress9);
+
+      //victory conditions function
+      let osco = 0;
+      let xsco = 0;
+      var x = document.getElementById("popup-box");
+      function checkvictory() {
+        if (
+          btn1.innerHTML == "O" &&
+          btn2.innerHTML == "O" &&
+          btn3.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn4.innerHTML == "O" &&
+          btn5.innerHTML == "O" &&
+          btn6.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn7.innerHTML == "O" &&
+          btn8.innerHTML == "O" &&
+          btn9.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn1.innerHTML == "O" &&
+          btn4.innerHTML == "O" &&
+          btn7.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn2.innerHTML == "O" &&
+          btn5.innerHTML == "O" &&
+          btn8.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn3.innerHTML == "O" &&
+          btn6.innerHTML == "O" &&
+          btn9.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn1.innerHTML == "O" &&
+          btn5.innerHTML == "O" &&
+          btn9.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn3.innerHTML == "O" &&
+          btn5.innerHTML == "O" &&
+          btn7.innerHTML == "O"
+        ) {
+          alert("O wins");
+          osco += 1;
+          document.getElementById("oscore").innerHTML = osco;
+          newgame();
+        } else if (
+          btn1.innerHTML == "X" &&
+          btn2.innerHTML == "X" &&
+          btn3.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        } else if (
+          btn4.innerHTML == "X" &&
+          btn5.innerHTML == "X" &&
+          btn6.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        } else if (
+          btn7.innerHTML == "X" &&
+          btn8.innerHTML == "X" &&
+          btn9.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        } else if (
+          btn1.innerHTML == "X" &&
+          btn4.innerHTML == "X" &&
+          btn7.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        } else if (
+          btn2.innerHTML == "X" &&
+          btn5.innerHTML == "X" &&
+          btn8.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        } else if (
+          btn3.innerHTML == "X" &&
+          btn6.innerHTML == "X" &&
+          btn9.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        } else if (
+          btn1.innerHTML == "X" &&
+          btn5.innerHTML == "X" &&
+          btn9.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        } else if (
+          btn3.innerHTML == "X" &&
+          btn5.innerHTML == "X" &&
+          btn7.innerHTML == "X"
+        ) {
+          alert("X wins");
+          xsco += 1;
+          document.getElementById("xscore").innerHTML = xsco;
+          newgame();
+        }
+      }
+    </script>
+  </body>
+</html>
